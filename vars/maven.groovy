@@ -10,6 +10,7 @@ def allStages(){
     stageUploadNexus()
     stageDownloadNexus()
     stageRunJar()
+    stageRunSpringCurl()
 }
 
 def stageCleanBuild(){
@@ -109,6 +110,14 @@ def stageDownloadNexus(){
 def stageRunJar(){
     stage("Paso 7: Levantar Artefacto Jar"){
         sh 'nohup java -jar LaboratorioM3-ID-0.0.1.jar & >/dev/null'
+    }
+}
+
+def stageRunSpringCurl(){
+    env.TAREA="Paso 8: Curl Springboot Gradle sleep 20"
+    stage("$env.TAREA"){
+        sh "gradle bootRun&"
+        sh "sleep 10 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
     }
 }
 
