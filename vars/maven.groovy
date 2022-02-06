@@ -121,6 +121,9 @@ def stageRunSpringCurl(){
         sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
         sh "curl -X GET 'http://localhost:8081/rest/mscovid/estadoMundial'"
         sh "curl -X GET 'http://localhost:8081/rest/mscovid/estadoPais?pais=chile'"
+
+        String response = sh(script: "curl -s http://localhost:8081/rest/mscovid/estadoPais?pais=chile", returnStdout: true).trim()
+        echo response
     }
 }
 
