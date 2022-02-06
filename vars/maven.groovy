@@ -123,7 +123,7 @@ def stageRunSpringCurl(){
         sh "curl -X GET 'http://localhost:8081/rest/mscovid/estadoPais?pais=chile'"
 
         def url = "http://localhost:8081/rest/mscovid/estadoPais?pais=chile"
-        int status = sh(script: "curl -sLI -w '%{http_code}' $url -o /dev/null", returnStdout: true)
+        String status = sh(script: "curl -sLI -w '%{http_code}' $url -o /dev/null", returnStdout: true)
         echo "status: ${status}"
 
         url = "http://localhost:8081/rest/mscovid/estadoMundial"
