@@ -4,12 +4,12 @@ def call(){
 
 def allStages(){
     stageCleanBuild()
-    stageCleanTest()
-    stagePackage()
-    stageSonar()
-    stageUploadNexus()
-    stageDownloadNexus()
-    stageRunJar()
+    // stageCleanTest()
+    // stagePackage()
+    // stageSonar()
+    // stageUploadNexus()
+    // stageDownloadNexus()
+    // stageRunJar()
     stageRunSpringCurl()
 }
 
